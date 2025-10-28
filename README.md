@@ -34,22 +34,73 @@ A full subtractor is a combinational circuit that performs subtraction involving
 
 Diff = A ⊕ B ⊕ Bin 
 
-Borrow out = A'Bin + A'B + BBin
+Borrow out = A'Bin + A'B+ BBin
+
 
 **Truthtable**
 
+<img width="560" height="955" alt="image" src="https://github.com/user-attachments/assets/d4d37938-d23d-4bed-aa89-017847a7994b" />
+
 **Procedure**
 
-Write the detailed procedure here
+Type the program in Quartus software.
+
+Compile and run the program.
+
+Generate the RTL schematic and save the logic diagram.
+
+Create nodes for inputs and outputs to generate the timing diagram.
+
+For different input combinations generate the timing diagram.
 
 **Program:**
 
-/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
+/* Program to design a half subtractor and full subtractor circuit and verify its truth table in quartus using Verilog programming. 
+```
+module ex4(sum, cout, a, b, cin);
+    output sum;
+    output cout;
+    input a;
+    input b;
+    input cin;
+
+	 wire w1,w2,w3;
+	 assign w1=a^b;
+	 assign w2=a&b;
+	 assign w3=w1&cin;
+	 assign sum=w1^cin;
+	 assign cout=w2|w3;
+endmodule
+
+module ex44(df, bo, a, b, bin);
+    output df;
+    output bo;
+    input a;
+    input b;
+    input bin;
+	wire w1,w2,w3;
+	 assign w1=a^b;
+	 assign w2=(~a&b);
+	 assign w3=(~w1&bin);
+	 assign df=w1^bin;
+	 assign bo=w2|w3;
+endmodule
+```
+Developed by:Tejasree.K
+
+RegisterNumber:212224240168
 */
 
 **RTL Schematic**
 
+<img width="848" height="600" alt="image" src="https://github.com/user-attachments/assets/d19da82c-ff66-4073-8669-2384a8e4db54" />
+
+
 **Output Timing Waveform**
+
+<img width="1282" height="731" alt="image" src="https://github.com/user-attachments/assets/65adbd05-4a11-4916-a99c-73fb7b704dd9" />
+
+<img width="1265" height="727" alt="image" src="https://github.com/user-attachments/assets/59e9d488-0b9b-4efb-86b0-3f713336006d" />
 
 **Result:**
 
